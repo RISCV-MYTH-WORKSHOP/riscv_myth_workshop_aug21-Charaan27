@@ -100,3 +100,25 @@ As the name suggests, the application program tries to access the registers pres
 
 * 32bit for RV32
 * 64bit for RV64
+
+## Lab - 1 - Rewrite C program using ASM language
+* We first write a C program 1to9_custom.c which prints the sum of numbers from 1 to 9. 
+* Then we write an asm code load.S which contains assembly level instructions which are used to perform the operations mentioned in the C program.
+</br>
+![asm_code](https://github.com/RISCV-MYTH-WORKSHOP/riscv_myth_workshop_aug21-Charaan27/blob/master/Day2/main_code.PNG)
+</br>
+* Command used to compile the asm code is
+
+  ```
+  $ riscv64-unknown-elf-gcc -Ofast mabi=lp64 -march=rv64i -o 1to9_custom.o 1t09_custom.c load.S
+  ```
+  
+* Command used to view the object file is
+
+  ```
+  $ riscv64-unknown-elf-objdump -d 1t09_custom.o | less
+  ```
+</br>
+![obj_code](https://github.com/RISCV-MYTH-WORKSHOP/riscv_myth_workshop_aug21-Charaan27/blob/master/Day2/objdump.PNG)
+</br>
+
