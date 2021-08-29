@@ -101,10 +101,18 @@ As the name suggests, the application program tries to access the registers pres
 * 32bit for RV32
 * 64bit for RV64
 
+The ABI names which are used to access the registers of the RISC-V CPU are given in this image below:
+
+</br>
+
+![abi_names](https://github.com/RISCV-MYTH-WORKSHOP/riscv_myth_workshop_aug21-Charaan27/blob/master/Day2/abi_names.PNG)
+
+</br>
+
 ## Lab - 1 - Rewrite C program using ASM language
 * We first write a C program 1to9_custom.c which prints the sum of numbers from 1 to 9. 
 * Then we write an asm code load.S which contains assembly level instructions which are used to perform the operations mentioned in the C program.
-* 
+
 </br>
 
 ![asm code](https://github.com/RISCV-MYTH-WORKSHOP/riscv_myth_workshop_aug21-Charaan27/blob/master/Day2/main_code.PNG)
@@ -127,3 +135,183 @@ As the name suggests, the application program tries to access the registers pres
 ![obj code](https://github.com/RISCV-MYTH-WORKSHOP/riscv_myth_workshop_aug21-Charaan27/blob/master/Day2/objdump.PNG)
 
 </br>
+
+
+## Lab - 2 - Simulate new C program with function call
+
+* We first compile the asm code as shown above, then we get the output of the code by invoking the spike debugger using the command below:
+
+  ```
+  $ spike pk 1to9_custom.o
+  ```
+  
+* Then we start to debug the code by running the debugger until pc is 100b0 using the command below:
+
+  ```
+  $ spike -d pk 1to9_custom.o
+  ```
+  
+  ```
+  $ until pc 0 100b0
+  ```
+  
+* We can now view the address of the registers a0 and a1:
+
+  ```
+  $ reg 0 a0
+  ```
+  
+  ```
+  $ reg 0 a1
+  ```
+  
+* The addresses of the above two registers are shown below:
+
+</br>
+
+![lab1](https://github.com/RISCV-MYTH-WORKSHOP/riscv_myth_workshop_aug21-Charaan27/blob/master/Day2/lab1.PNG)
+
+</br>
+
+* Next, we look at the address of the registers a0 and a1, by running the debugger until pc is 100bc:
+
+</br>
+
+![lab2](https://github.com/RISCV-MYTH-WORKSHOP/riscv_myth_workshop_aug21-Charaan27/blob/master/Day2/lab2.PNG)
+
+</br>
+
+## Lab - 3 - Running C program on RISC-V CPU:
+In this lab, we are going to load the hex format of the C program into the RISC-V CPU written in Verilog and we are going to get the output, by accessing the memory of the RISC-V CPU for the display.
+
+* Clone the following repository by entering the command below:
+
+  ```
+  $ git clone https://github.com/kunalg123/riscv_workshop_collaterals.git
+  ```
+  
+* Enter the following commands below:
+
+  ```
+  $ cd riscv_workshop_collaterals
+  ```
+  
+  ```
+  $ ls -ltr
+  ```
+  
+  ```
+  $ cd labs
+  ```
+  
+  ```
+  $ ls -ltr
+  ```
+  
+* The verilog code of the RISC-V CPU can be viewed by going into the file picorv32.v. This can be done by entering ```vim picorv32.v``` or ```less picorv32.v```
+* Similarly the testbench for the RISC-V CPU can also be viewed by entering the commands ```vim testbench.v```
+* The scripts which convert the C program to hex format can be viewed by entering the following command:
+
+  ```
+  $ vim rv32im.sh
+  ```
+  
+* The scripts can be viewed in the image below:
+
+</br>
+
+![lab3](https://github.com/RISCV-MYTH-WORKSHOP/riscv_myth_workshop_aug21-Charaan27/blob/master/Day2/lab3.PNG)
+
+</br>
+
+# Day - 3 - Digital Logic with TL-Verilog and Makerchip:
+
+We first get familiarized with TL-Verilog and Makerchip. Transaction-Level Verilog(TL-Verilog) is a language extension to SystemVerilog that supports Transanction-Level Design. In this context, a transaction is an entity that moves through pipelines and queues. It might be a machine instruction, a packet flit, or a read and write operation into the memory. The corresponding transaction logic, that operates on the transaction can be placed anywhere along the transaction’s flow. More details about TL-Verilog can be found [here](https://arxiv.org/ftp/arxiv/papers/1811/1811.01780.pdf#:~:text=Abstract%E2%80%8B%E2%80%8B%E2%80%94Transaction%2DLevel,is%20an%20entity%20that%20moves)
+
+On the other hand, we have Makerchip, which is a browser application that helps us to build digital circuitry using verilog on-line. It is developed and maintained by [Redwood EDA](https://www.redwoodeda.com). It also supports the TL-Verilog extension, which we are going to use for our designs. Head over to this [link](https://www.makerchip.com), and click on 'Launch Makerchip IDE' to get your environment to code.
+
+TL-Verilog is an easy-to-use language extension which requires lesser amount of code to design circuitry, compared to other Hardware Description Languages present out there. Here, staging becomes very easy and it does not impact the behaviour of the logic. It also supports Pipelining and Validity which aid for a better and cleaner design. It comes with automated clock-gating facility and error checking is seamless.
+
+## Lab - 1: Calculator using Combinational Logic:
+
+Unlike Verilog, here there is no need to define the signals which are going to be used in the design. This makes designing easy. We use a 4x1 Multiplexer which in itself is a combinational circuit, and that becomes the base of the Combinational logic Calculator. The design of the circuit along with the output waveforms can be seen below.
+
+</br>
+
+![comb_calc](https://github.com/RISCV-MYTH-WORKSHOP/riscv_myth_workshop_aug21-Charaan27/blob/master/Day3_5/combinational_calculator.PNG)
+
+</br>
+
+## Lab - 2: Counter using Sequential Logic:
+A counter is a sequential circuit, which increments the incoming value to it by 1, after every clock edge. Depending on the number of states that you could get through your counter, it is also called as mod-n counter. The image below shows the implementation of a counter using sequential logic. The usage of ```>>1``` indicates that the value of the signal is one state ahead of the present signal, and hence we get a flop into this design - and thus this becomes a sequential counter.
+
+</br>
+
+![seq_cnt](https://github.com/RISCV-MYTH-WORKSHOP/riscv_myth_workshop_aug21-Charaan27/blob/master/Day3_5/seq_counter.PNG)
+
+</br>
+
+## Lab - 3: Calculator using Sequential Logic:
+Now, we update one input signal of the combinational logic calculator, with the next state of the output of the calculator, just like the counter logic. The code, and output waveforms can be viewed below.
+
+</br>
+
+![seq_calc](https://github.com/RISCV-MYTH-WORKSHOP/riscv_myth_workshop_aug21-Charaan27/blob/master/Day3_5/seq_calculator.PNG)
+
+</br>
+
+## Pipelining:
+Pipelining is essentially a technique which is used to divide an entire circuit into different stages, and for each stage we provide different clock pulses of different frequencies. When a circuit is intended for high performance, the frequency of the clock pulse is increased, so that more number of instructions can be executed throughout the entire period. At the same time, we cannot fit too much of logic inside a high frequency clock pulse. Therefore, we go for pipelining where we separate the circuit into different pipe-stages and provide different clock pulses of different frequencies. 
+
+
+## Lab - 4: Pipelined Calculator and Counter
+The pipelined sequential calculator and coutner is shown below. 
+
+</br>
+
+![calc_cnt_pipeline](https://github.com/RISCV-MYTH-WORKSHOP/riscv_myth_workshop_aug21-Charaan27/blob/master/Day3_5/calculator_counter_pipeline.PNG)
+
+</br>
+
+## Lab - 5: Pipelined error diagram:
+We define a few signals which carries some error. We put these error signals under different pipe-stages, and get this diagram.
+
+</br>
+
+![pipeline_error](https://github.com/RISCV-MYTH-WORKSHOP/riscv_myth_workshop_aug21-Charaan27/blob/master/Day3_5/pipeline_error.PNG)
+
+</br>
+
+## Lab - 6: 2 - Cycle Calculator:
+From the one stage sequential calculator, we now get a two staged (i.e) two cycle sequential calculator. This extra stage is helpful for calculators operating in high frequency, and it completes all the calculations within the two stage design.
+
+</br>
+
+![2_cycle_calc](https://github.com/RISCV-MYTH-WORKSHOP/riscv_myth_workshop_aug21-Charaan27/blob/master/Day3_5/2_cycle_calc.PNG)
+
+</br>
+
+## Validity:
+Validity is a process in which the design is validated (i.e) checked whether it is operating under the correct circumstances and conditions. It can be imagined as a when statement (i.e) 'when' this condition is valid/true the design below this condition gets executed. Validity helps in:
+
+* Easier debugging of code
+* Cleaner design
+* Better error checking mechanism
+* Automated clock gating
+
+The valid condition is defined to the ```$valid``` signal, and the when condition is given as ```?$valid```, under which the code is present. If the 'when' condition is found to be valid, the code below the condition gets executed.
+
+## Lab - 7: 2 - Cycle Calculator with Validity and Single-Value Memory:
+We now, add a valid condition ```$valid_or_reset``` to our 2-cycle calculator code. If the condition is found to be valid, then the 2-cycle calculator gets executed. Along with that, we now add a feature to store single-value memory.
+
+</br>
+
+![2_cycle_valid_mem](https://github.com/RISCV-MYTH-WORKSHOP/riscv_myth_workshop_aug21-Charaan27/blob/master/Day3_5/2_cycle_calc_with_validation.PNG)
+
+</br>
+
+
+
+
+
+
