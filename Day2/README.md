@@ -4,7 +4,7 @@ This folder contains the labwork done on Day2. This lab work is related to the A
 - The objdump.png file contains the object file generated through the commands 
 
   ```
-  $ riscv64-unknown-elf-gcc -Ofast mabi=lp64 -march=rv64i -o 1to9_custom.o 1t09_custom.c load.S
+  $ riscv64-unknown-elf-gcc -Ofast -mabi=lp64 -march=rv64i -o 1to9_custom.o 1to9_custom.c load.S
   ```  
   ```
   $ riscv64-unknown-elf-objdump -d 1t09_custom.o | less
