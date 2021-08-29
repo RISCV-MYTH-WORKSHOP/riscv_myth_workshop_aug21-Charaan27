@@ -104,9 +104,13 @@ As the name suggests, the application program tries to access the registers pres
 ## Lab - 1 - Rewrite C program using ASM language
 * We first write a C program 1to9_custom.c which prints the sum of numbers from 1 to 9. 
 * Then we write an asm code load.S which contains assembly level instructions which are used to perform the operations mentioned in the C program.
+* 
 </br>
+
 ![asm code](https://github.com/RISCV-MYTH-WORKSHOP/riscv_myth_workshop_aug21-Charaan27/blob/master/Day2/main_code.PNG)
+
 </br>
+
 * Command used to compile the asm code is
 
   ```
@@ -122,4 +126,4 @@ As the name suggests, the application program tries to access the registers pres
 
 ![obj code](https://github.com/RISCV-MYTH-WORKSHOP/riscv_myth_workshop_aug21-Charaan27/blob/master/Day2/objdump.PNG)
 
-
+</br>
