@@ -397,3 +397,4 @@ Finally, we now write a testbench for our overall CPU design.
 ![testbench](https://github.com/RISCV-MYTH-WORKSHOP/riscv_myth_workshop_aug21-Charaan27/blob/master/Day3_5/testbench.PNG)
 
 </br>
+
