@@ -310,8 +310,90 @@ We now, add a valid condition ```$valid_or_reset``` to our 2-cycle calculator co
 
 </br>
 
+# Day - 4: Basic RISC-V CPU Microarchitecture:
+We will now shift our focus in designing a basic RISC-V CPU using all the concepts that was introduced earlier. First, we need to know the components that make up the RISC-V CPU Core. The idea is to start designing each component individually and putting them all together in the design. 
 
+</br>
 
+![riscv_block](https://github.com/RISCV-MYTH-WORKSHOP/riscv_myth_workshop_aug21-Charaan27/blob/master/Day3_5/riscv_block_dig.PNG)
 
+</br>
 
+The components of the RISC-V CPU are given below:
 
+* Program Counter (PC)
+* Instruction Decoder
+* Imem - Rd (Instruction Memory)
+* Branch
+* Register File Read
+* Register File Write
+* Arithmetic Logic Unit (ALU)
+
+## Lab - 1: Program Counter (PC):
+A program counter, is a component which holds the address of the next instruction to be executed. Each time, it increments to the next instruction to be executed. For a 64-bit machine, the program counter is incremented with 4 every time.
+
+</br>
+
+![next_pc](https://github.com/RISCV-MYTH-WORKSHOP/riscv_myth_workshop_aug21-Charaan27/blob/master/Day3_5/next_pc.PNG)
+
+</br>
+
+## Lab - 2: Fetch Logic: 
+During this phase, the processor gets or fetches the instruction to be executed from the Instruction Memory(IM) based on the address present in the Program Counter. 
+
+</br>
+
+![fetch](https://github.com/RISCV-MYTH-WORKSHOP/riscv_myth_workshop_aug21-Charaan27/blob/master/Day3_5/fetch.PNG)
+
+</br>
+
+## Lab - 3: Instruction Decode:
+We are now introduced to six types of instructions, which are R, I, S, B, U, J type instructions. The Instruction Format consists of opcode, immediate value, source and destination address. The processor decodes the instruction based on the type and format of instruction. 
+
+</br>
+
+![inst_decode](https://github.com/RISCV-MYTH-WORKSHOP/riscv_myth_workshop_aug21-Charaan27/blob/master/Day3_5/inst_decode.PNG)
+
+</br>
+
+## Lab - 4: Register File Read:
+Next up, we have the Register File Read design. This design performs two read operations and one write operation simultaneously. 
+
+</br>
+
+![reg_read](https://github.com/RISCV-MYTH-WORKSHOP/riscv_myth_workshop_aug21-Charaan27/blob/master/Day3_5/reg_read.PNG)
+
+</br>
+
+## Lab - 5: Register File Write:
+
+</br>
+
+![reg_write](https://github.com/RISCV-MYTH-WORKSHOP/riscv_myth_workshop_aug21-Charaan27/blob/master/Day3_5/reg_write.PNG)
+
+</br>
+
+## Lab - 6: ALU
+ALU(Arithmetic and Logic Unit) is a combinational digital circuit, in which the Arithmetic and Logic Operations between the binary numbers is performed. The opcode contains the operation that is performed between the operands present in the instruction.
+
+</br>
+
+![alu](https://github.com/RISCV-MYTH-WORKSHOP/riscv_myth_workshop_aug21-Charaan27/blob/master/Day3_5/alu.PNG)
+
+</br>
+
+## Lab - 7: Control Logic:
+Control Logic monitors the logic transfer, when there are branches coming up like function calls and interrupts. When the instruction is decoded, the branch target address is obtained and is passed to the Program Counter. When the operands are ready to be executed, the condition for branches are checked before proceeding further.
+
+</br>
+
+![branches](https://github.com/RISCV-MYTH-WORKSHOP/riscv_myth_workshop_aug21-Charaan27/blob/master/Day3_5/branches.PNG)
+
+## Lab - 8: Testbench:
+Finally, we now write a testbench for our overall CPU design.
+
+</br>
+
+![testbench](https://github.com/RISCV-MYTH-WORKSHOP/riscv_myth_workshop_aug21-Charaan27)
+
+</br>
