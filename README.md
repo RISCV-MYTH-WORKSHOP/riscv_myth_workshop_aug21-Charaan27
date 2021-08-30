@@ -11,7 +11,7 @@ This repository contains all the information required to build your own RISC-V P
 - [2. Day 1 - Introduction to RISC-V ISA and GNU Compiler Toolchain](#Day-1---Introduction-to-RISC--V-ISA-and-GNU-Compiler-Toolchain)
 - [3. Day - 2 - Introduction to ABI and Basic Verification Flow](#Day---2---Introduction-to-ABI-and-Basic-Verification-Flow)
 - [4. Day - 3 - Digital Logic with TL-Verilog and Makerchip](#Day---3---Digital-Logic-with-TL--Verilog-and-Makerchip)
-- [5. Day - 4 - Basic RISC-V CPU Microarchitecture](#Day---4-Basic-RISC--V-CPU-Microarchitecture)
+- [5. Day - 4 - Basic RISC-V CPU Microarchitecture](#Day---4---Basic-RISC--V-CPU-Microarchitecture)
 - [6. Day - 5 Complete Pipelined RISC-V Core](#Day---5-Complete-Pipelined-RISC--V-Core)
 - [7. Author](#Author)
 - [8. Aknowledgements](#Aknowledgements)
