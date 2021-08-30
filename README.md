@@ -6,6 +6,17 @@
 This repository contains all the information required to build your own RISC-V Pipelined Core Processor. The proposed design supports the RV32I Base Integer Instruction Set, and is built using TL-Verilog on [Makerchip IDE](https://www.makerchip.com) Platform. This repository is intended for those who look forward to start learning the RISC-V Instruction Set Architecture.
 </br>
 
+# Table of Contents:
+- [1. What is RISC-V?](#-What-is-RISC--V?)
+- [2. Day 1 - Introduction to RISC-V ISA and GNU Compiler Toolchain](#Day-1---Introduction-to-RISC--V-ISA-and-GNU-Compiler-Toolchain)
+- [3. Day - 2 - Introduction to ABI and Basic Verification Flow](#Day---2---Introduction-to-ABI-and-Basic-Verification-Flow)
+- [4. Day - 3 - Digital Logic with TL-Verilog and Makerchip:](#Day---3---Digital-Logic-with-TL--Verilog-and-Makerchip:)
+- [5. Day - 4 - Basic RISC-V CPU Microarchitecture:](#Day---4:-Basic-RISC--V-CPU-Microarchitecture:)
+- [6. Day - 5: Complete Pipelined RISC-V Core:](#Day---5:-Complete-Pipelined-RISC--V-Core:)
+- [7. Author:](#Author:)
+- [8. Aknowledgements:](#Aknowledgements:)
+
+
 # What is RISC-V?
 The RISC-V ISA is a standard Instruction Set Architecture which is open-sourced and free to use. It was developed at the University of California, Berkely in the early 2010s. The RISC-V is open sourced and thus it enables anyone to use it in their designs easily, which is not possible through commercial ISAs available. The [RISC-V international](https://riscv.org) - a global not-for-profit organization, defines RISC-V as a _completely open ISA that is freely available to academia and industry_. 
 
@@ -398,3 +409,23 @@ Finally, we now write a testbench for our overall CPU design.
 
 </br>
 
+# Day - 5: Complete Pipelined RISC-V Core:
+On this day, we attempt to pipeline our RISC-V deisgn which we obtain on day 4. Additionally, we also add a Data Memory Element which supports all the base integer instruction sets, which corresponds to the Load-Store Architecture. We also added necessary logic to prevent branching hazards which arise due to pipelining. Later, we go for the testing part, by adding load-store assembly modules. Finally, we include the Jump instructions(JAL and JALR), and thus we arrive at a fully-functional, pipelined, RISC-V core.
+Finally,we developed the pipelined model for the core developed on Day 4.
+
+</br>
+
+![pipelined_riscv_core](https://github.com/RISCV-MYTH-WORKSHOP/riscv_myth_workshop_aug21-Charaan27/blob/master/Day3_5/pipelined_riscv_core.PNG)
+
+</br>
+
+![pipelined_riscv_core_waveform](https://github.com/RISCV-MYTH-WORKSHOP/riscv_myth_workshop_aug21-Charaan27/blob/master/Day3_5/pipelined_waveform.PNG)
+
+</br>
+
+# Author:
+- Charaan S, Student at Madras Institute of Technology, Anna University. - kumarcharaan27@gmail.com 
+
+# Aknowledgements:
+- [Kunal Ghosh](https://github.com/kunalg123), Co-founder (VSD Corp. Pvt. Ltd). 
+- [Steve Hoover](https://github.com/stevehoover), Founder, Redwood EDA.
