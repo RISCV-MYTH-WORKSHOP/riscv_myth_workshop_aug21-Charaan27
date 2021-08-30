@@ -361,7 +361,7 @@ Next up, we have the Register File Read design. This design performs two read op
 
 </br>
 
-![reg_read](https://github.com/RISCV-MYTH-WORKSHOP/riscv_myth_workshop_aug21-Charaan27/blob/master/Day3_5/reg_read.PNG)
+![reg_file_read](https://github.com/RISCV-MYTH-WORKSHOP/riscv_myth_workshop_aug21-Charaan27/blob/master/Day3_5/reg_file_read.PNG)
 
 </br>
 
@@ -369,7 +369,7 @@ Next up, we have the Register File Read design. This design performs two read op
 
 </br>
 
-![reg_write](https://github.com/RISCV-MYTH-WORKSHOP/riscv_myth_workshop_aug21-Charaan27/blob/master/Day3_5/reg_write.PNG)
+![reg_file_write](https://github.com/RISCV-MYTH-WORKSHOP/riscv_myth_workshop_aug21-Charaan27/blob/master/Day3_5/reg_file_write.PNG)
 
 </br>
 
