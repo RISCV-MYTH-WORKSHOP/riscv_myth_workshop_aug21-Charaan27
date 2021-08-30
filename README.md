@@ -10,11 +10,11 @@ This repository contains all the information required to build your own RISC-V P
 - [1. What is RISC-V?](#-What-is-RISC--V?)
 - [2. Day 1 - Introduction to RISC-V ISA and GNU Compiler Toolchain](#Day-1---Introduction-to-RISC--V-ISA-and-GNU-Compiler-Toolchain)
 - [3. Day - 2 - Introduction to ABI and Basic Verification Flow](#Day---2---Introduction-to-ABI-and-Basic-Verification-Flow)
-- [4. Day - 3 - Digital Logic with TL-Verilog and Makerchip:](#Day---3---Digital-Logic-with-TL--Verilog-and-Makerchip:)
-- [5. Day - 4 - Basic RISC-V CPU Microarchitecture:](#Day---4:-Basic-RISC--V-CPU-Microarchitecture:)
-- [6. Day - 5: Complete Pipelined RISC-V Core:](#Day---5:-Complete-Pipelined-RISC--V-Core:)
-- [7. Author:](#Author:)
-- [8. Aknowledgements:](#Aknowledgements:)
+- [4. Day - 3 - Digital Logic with TL-Verilog and Makerchip](#Day---3---Digital-Logic-with-TL--Verilog-and-Makerchip)
+- [5. Day - 4 - Basic RISC-V CPU Microarchitecture](#Day---4:-Basic-RISC--V-CPU-Microarchitecture)
+- [6. Day - 5: Complete Pipelined RISC-V Core](#Day---5:-Complete-Pipelined-RISC--V-Core)
+- [7. Author](#Author)
+- [8. Aknowledgements](#Aknowledgements)
 
 
 # What is RISC-V?
@@ -235,7 +235,7 @@ In this lab, we are going to load the hex format of the C program into the RISC-
 
 </br>
 
-# Day - 3 - Digital Logic with TL-Verilog and Makerchip:
+# Day - 3 - Digital Logic with TL-Verilog and Makerchip
 
 We first get familiarized with TL-Verilog and Makerchip. Transaction-Level Verilog(TL-Verilog) is a language extension to SystemVerilog that supports Transanction-Level Design. In this context, a transaction is an entity that moves through pipelines and queues. It might be a machine instruction, a packet flit, or a read and write operation into the memory. The corresponding transaction logic, that operates on the transaction can be placed anywhere along the transaction’s flow. More details about TL-Verilog can be found [here](https://arxiv.org/ftp/arxiv/papers/1811/1811.01780.pdf#:~:text=Abstract%E2%80%8B%E2%80%8B%E2%80%94Transaction%2DLevel,is%20an%20entity%20that%20moves)
 
@@ -321,7 +321,7 @@ We now, add a valid condition ```$valid_or_reset``` to our 2-cycle calculator co
 
 </br>
 
-# Day - 4: Basic RISC-V CPU Microarchitecture:
+# Day - 4: Basic RISC-V CPU Microarchitecture
 We will now shift our focus in designing a basic RISC-V CPU using all the concepts that was introduced earlier. First, we need to know the components that make up the RISC-V CPU Core. The idea is to start designing each component individually and putting them all together in the design. 
 
 </br>
@@ -409,7 +409,7 @@ Finally, we now write a testbench for our overall CPU design.
 
 </br>
 
-# Day - 5: Complete Pipelined RISC-V Core:
+# Day - 5: Complete Pipelined RISC-V Core
 On this day, we attempt to pipeline our RISC-V deisgn which we obtain on day 4. Additionally, we also add a Data Memory Element which supports all the base integer instruction sets, which corresponds to the Load-Store Architecture. We also added necessary logic to prevent branching hazards which arise due to pipelining. Later, we go for the testing part, by adding load-store assembly modules. Finally, we include the Jump instructions(JAL and JALR), and thus we arrive at a fully-functional, pipelined, RISC-V core.
 Finally,we developed the pipelined model for the core developed on Day 4.
 
@@ -423,9 +423,9 @@ Finally,we developed the pipelined model for the core developed on Day 4.
 
 </br>
 
-# Author:
+# Author
 - Charaan S, Student at Madras Institute of Technology, Anna University. - kumarcharaan27@gmail.com 
 
-# Aknowledgements:
+# Aknowledgements
 - [Kunal Ghosh](https://github.com/kunalg123), Co-founder (VSD Corp. Pvt. Ltd). 
 - [Steve Hoover](https://github.com/stevehoover), Founder, Redwood EDA.
